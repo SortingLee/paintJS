@@ -1,21 +1,25 @@
-@import "reset.css";
+@import "reset.css";        /*모든 브라우저에서 통일된 화면을 볼 수 있도록 reset!*/
 
 body{
-    background-color: #f6f9fc;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f6f9fc;      /*배경색상*/
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;   /*font 속성*/
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;         /*item들을 새로로 추가*/
+    align-items: center;            /*item 중앙 설정*/
+
+    /*padding*/
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.canvas{
+.canvas{   
+    /*canvas 크기*/
     width: 650px;
     height: 550px;
+
     background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(50,50,93,0.11), 0 1px 3px rgba(0,0,0,0.08);
+    border-radius: 15px;        /*모서리 약간 둥글게*/
+    box-shadow: 0 4px 6px rgba(50,50,93,0.11), 0 1px 3px rgba(0,0,0,0.08);      /*그림자 효과*/
 }
 
 .control{
@@ -44,7 +48,7 @@ body{
 }
 
 .control__btns button:active{
-    transform: scale(0.9);
+    transform: scale(0.9);      /*버튼 누를 시 효과*/
 }
 
 .control .control__colors{

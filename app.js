@@ -30,8 +30,8 @@ function stopPainting(){
 }
 
 function onMouseMove(event){
-    //mouse의 x,y좌표
     //console.log(event);
+    //mouse의 x,y좌표
     const x = event.offsetX;
     const y = event.offsetY;
 
@@ -56,11 +56,12 @@ function onMouseUp(event){
 }
 
 function changeColor(event){
-    //console.log(event);
+    //console.log(event);       //event를 출력하여 event 세부 정보를 확인
     //console.log(event.toElement.style.backgroundColor);
     const color = event.toElement.style.backgroundColor;
     ctx.strokeStyle = color;
     ctx.fillStyle = color;
+    //stroke와 fill 색상 적용
 }
 
 function changeRange(event){
@@ -68,14 +69,16 @@ function changeRange(event){
     console.log(event.target.value);
     const size = event.target.value;
 
-    ctx.lineWidth = size;
+    ctx.lineWidth = size;       //range의 변화에 따라 줄 굵기 변화 적용
 }
 
 function changeMode(){
+    //paint btn click시, fill로
     if(filing===true){
         filing = false;
         mode.innerText = "Fill";
     }
+    //fill btn cilck시, paint로
     else{
         filing = true;
         mode.innerText = "Paint";
@@ -83,7 +86,7 @@ function changeMode(){
 }
 
 function canvasClick(){
-    if(filing){
+    if(filing){     //filing이 true이면, canvas 전체를 fill.
         ctx.fillRect(0,0,canvas.width,canvas.height);
     }
 }
@@ -108,13 +111,13 @@ if(canvas){         //canvas 내에서!
     canvas.addEventListener("mousedown", startPainting);      //mouse의 클릭 상태
     canvas.addEventListener("mouseup",stopPainting);           //mouse의 클릭 해제
     canvas.addEventListener("mouseleave",stopPainting);     //mouse가 canvas에서 벗어나면!
-    canvas.addEventListener("click",canvasClick);
-    canvas.addEventListener("contextmenu",changeContextMenu);
+    canvas.addEventListener("click",canvasClick);           //paint,fill 버튼 처리
+    canvas.addEventListener("contextmenu",changeContextMenu);       //우클릭 처리
 }  
 
 //console.log(Array.from(colors));
 Array.from(colors).forEach(color => color.addEventListener("click",changeColor));
-//colors요소들을 from을 통해 배열으로 만든 후, forEach를 통해 배열의 color 요소들에 전부 이벤트를 적용!
+//colors요소들을 from을 통해 배열으로 만든 후, forEach를 통해 배열의 color 요소들에 전부 이벤트를 적용! -> 해당 색상과 동일한 filling, painting 색 적용
 
 if(range){
     range.addEventListener("input",changeRange);
